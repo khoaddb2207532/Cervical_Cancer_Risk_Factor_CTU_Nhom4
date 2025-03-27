@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết quả dự đoán từ CSV</title>
+</head>
+
+<body>
+    <h1>Kết quả dự đoán từ CSV</h1>
+    <table>
+        <thead>
+            <tr>
+                {% for col in results[0]['data'] %}
+                <th>{{ col }}</th>
+                {% endfor %}
+                <th>Dự đoán</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+            <tr>
+                {% for value in result['data'].values() %}
+                <td>{{ value }}</td>
+                {% endfor %}
+                <td>{{ result['prediction'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h2>Thống kê so sánh</h2>
+    <table>
+        <tr>
+            <th>Tổng số dòng</th>
+            <td>{{ statistics.total_rows }}</td>
+        </tr>
+        <tr>
+            <th>Dự đoán 0</th>
+            <td>{{ statistics.prediction_0 }}</td>
+        </tr>
+        <tr>
+            <th>Dự đoán 1</th>
+            <td>{{ statistics.prediction_1 }}</td>
+        </tr>
+        <tr>
+            <th>Sinh thiết 0</th>
+            <td>{{ statistics.biopsy_0 }}</td>
+        </tr>
+        <tr>
+            <th>Sinh thiết 1</th>
+            <td>{{ statistics.biopsy_1 }}</td>
+        </tr>
+        <tr>
+            <th>Dự đoán 0, Sinh thiết 1</th>
+            <td>{{ statistics.prediction_0_biopsy_1 }}</td>
+        </tr>
+        <tr>
+            <th>Dự đoán 1, Sinh thiết 0</th>
+            <td>{{ statistics.prediction_1_biopsy_0 }}</td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Factors Cervical Cancer - Data Entry</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>Risk Factors Cervical Cancer - From CSV Data</h1>
+        <form action="/predict_from_csv" method="POST" enctype="multipart/form-data" class="mb-4">
+            <div class="form-group">
+                <input type="file" name="csv_file" class="form-control-file">
+            </div>
+            <button type="submit" class="btn btn-primary">Predict from CSV</button>
+        </form>
+
+        <h1>Risk Factors Cervical Cancer - Data Entry Form</h1>
+        <form action="/" method="POST">
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" min="0" step="1" placeholder="Nhập tuổi của bạn" required
+                    class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="num_sexual_partners">Number of sexual partners:</label>
+                <input type="number" id="num_sexual_partners" name="num_sexual_partners" min="0" step="1"
+                    placeholder="Nhập số lượng bạn tình" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="first_sexual_intercourse">First sexual intercourse (age):</label>
+                <input type="number" id="first_sexual_intercourse" name="first_sexual_intercourse" min="0" step="1"
+                    placeholder="Nhập tuổi lần đầu quan hệ" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="num_pregnancies">Number of pregnancies:</label>
+                <input type="number" id="num_pregnancies" name="num_pregnancies" min="0" step="1"
+                    placeholder="Nhập số lần mang thai" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="smokes">Smokes (Yes/No):</label>
+                <select id="smokes" name="smokes" class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="smokes_years">Smokes (years):</label>
+                <input type="number" id="smokes_years" name="smokes_years" min="0" step="0.1"
+                    placeholder="Số năm hút thuốc" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="smokes_packs">Smokes (packs/year):</label>
+                <input type="number" id="smokes_packs" name="smokes_packs" min="0" step="0.1"
+                    placeholder="Số bao thuốc/năm" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="hormonal_contraceptives">Hormonal Contraceptives (Yes/No):</label>
+                <select id="hormonal_contraceptives" name="hormonal_contraceptives" class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="hormonal_contraceptives_years">Hormonal Contraceptives (years):</label>
+                <input type="number" id="hormonal_contraceptives_years" name="hormonal_contraceptives_years" min="0"
+                    step="0.1" placeholder="Số năm sử dụng" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="iud">IUD (Yes/No):</label>
+                <select id="iud" name="iud" class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="iud_years">IUD (years):</label>
+                <input type="number" id="iud_years" name="iud_years" min="0" step="0.1" placeholder="Số năm sử dụng IUD"
+                    class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="stds">STDs (Yes/No):</label>
+                <select id="stds" name="stds" class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="stds_number">STDs (number):</label>
+                <input type="number" id="stds_number" name="stds_number" min="0" step="1"
+                    placeholder="Số lần chẩn đoán STDs" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="stds_condylomatosis">STDs: Condylomatosis (Yes/No):</label>
+                <select id="stds_condylomatosis" name="stds_condylomatosis" class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="stds_vaginal_condylomatosis">STDs: Vaginal Condylomatosis (Yes/No):</label>
+                <select id="stds_vaginal_condylomatosis" name="stds_vaginal_condylomatosis" class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="stds_vulvo_perineal_condylomatosis">STDs: Vulvo-Perineal Condylomatosis (Yes/No):</label>
+                <select id="stds_vulvo_perineal_condylomatosis" name="stds_vulvo_perineal_condylomatosis"
+                    class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="stds_syphilis">STDs: Syphilis (Yes/No):</label>
+                <select id="stds_syphilis" name="stds_syphilis" class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="stds_pelvic_inflammatory_disease">STDs: Pelvic Inflammatory Disease (Yes/No):</label>
+                <select id="stds_pelvic_inflammatory_disease" name="stds_pelvic_inflammatory_disease"
+                    class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="stds_genital_herpes">STDs: Genital Herpes (Yes/No):</label>
+                <select id="stds_genital_herpes" name="stds_genital_herpes" class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="stds_molluscum_contagiosum">STDs: Molluscum Contagiosum (Yes/No):</label>
+                <select id="stds_molluscum_contagiosum" name="stds_molluscum_contagiosum" class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="stds_hiv">STDs: HIV (Yes/No):</label>
+                <select id="stds_hiv" name="stds_hiv" class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="stds_hepatitis_b">STDs: Hepatitis B (Yes/No):</label>
+                <select id="stds_hepatitis_b" name="stds_hepatitis_b" class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="stds_hpv">STDs: HPV (Yes/No):</label>
+                <select id="stds_hpv" name="stds_hpv" class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="stds_number_of_diagnosis">STDs: Number of diagnosis:</label>
+                <input type="number" id="stds_number_of_diagnosis" name="stds_number_of_diagnosis" min="0" step="1"
+                    placeholder="Số lần chẩn đoán" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="dx_cancer">Dx: Cancer (Yes/No):</label>
+                <select id="dx_cancer" name="dx_cancer" class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="dx_cin">Dx: CIN (Yes/No):</label>
+                <select id="dx_cin" name="dx_cin" class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="dx_hpv">Dx: HPV (Yes/No):</label>
+                <select id="dx_hpv" name="dx_hpv" class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="dx">Dx (Yes/No):</label>
+                <select id="dx" name="dx" class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Hinselmann">Hinselmann (Yes/No):</label>
+                <select id="Hinselmann" name="Hinselmann" class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Schiller">Schiller (Yes/No):</label>
+                <select id="Schiller" name="Schiller" class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="Citology">Citology (Yes/No):</label>
+                <select id="Citology" name="Citology" class="form-control">
+                    <option value="yes">Yes</option>
+                    <option value="no" selected>No</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Dự đoán</button>
+        </form>
+
+        {% if prediction is not none %}
+        {% if prediction == 0 %}
+        <h2>Kết quả: Không mắc bệnh</h2>
+        {% else %}
+        <h2>Kết quả: Mắc bệnh</h2>
+        {% endif %}
+        {% endif %}
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
